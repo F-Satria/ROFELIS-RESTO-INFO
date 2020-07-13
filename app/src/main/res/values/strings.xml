@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Rofelis Restaurant Information</string>
+    <string name="nama">Rofelis Food Market</string>
+    <string name="alamat">Jl. Raya Gading Tutuka No.14, Kec. Soreang, Kab. Bandung, Jawa Barat 40914</string>
+    <string name="harga">20.000 IDR</string>
+    <string name="ordersekarang">Order Sekarang!</string>
+    <string name="rating">4.0</string>
+    <string name="daftar_restoran">Daftar Restoran</string>
+</resources>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@color/txt_color"
+            android:background="#4D000000"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/AppTheme.AppBarOverlay"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/detail_resto_img"
+                android:layout_width="150dp"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/bg_photo" />
+            <TextView
+                android:id="@+id/detail_resto_name"
+                style="@style/TextContent.Small.White"
+                android:layout_gravity="left"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="15dp"
+                android:background="#4D000000"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/nama"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/grey" />
+            <TextView
+                style="@style/TextContent.Small.White"
+                android:layout_gravity="left"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="145dp"
+                android:text="Harga rata-rata 2 porsi:"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/grey" />
+            <TextView
+                android:id="@+id/detail_resto_price"
+                style="@style/TextContent.Small.White"
+                android:layout_gravity="left"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="165dp"
+                android:text="@string/harga"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/txt_color" />
+            <TextView
+                android:id="@+id/detail_resto_order"
+                style="@style/TextContent.Small.White"
+                android:layout_gravity="left"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="215dp"
+                android:text="Order Sekarang!"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/txt_color2" />
+            <RatingBar
+                android:id="@+id/detail_resto_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="115dp"
+                android:scaleX="1.9"
+                android:scaleY="1.9"
+                android:transformPivotX="0dp"
+                android:transformPivotY="0dp"
+                android:numStars="5"
+                android:rating="4"
+                android:isIndicator="true"/>
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/TextContent.Small.White"
+                android:id="@+id/tv_alamat"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:text="Lokasi Restoran" />
+            <TextView
+                android:id="@+id/detail_resto_alamat"
+                style="@style/TextSpec.Field"
+                android:layout_below="@id/tv_alamat"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/alamat" />
+
+            <com.mapbox.mapboxsdk.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/detail_resto_alamat"
+                mapbox:mapbox_cameraTargetLat="-6.907989"
+                mapbox:mapbox_cameraTargetLng="107.617505"
+                mapbox:mapbox_cameraTilt="60"
+                mapbox:mapbox_cameraZoom="12"
+                mapbox:mapbox_styleUrl="@string/mapbox_style_light" />
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_row_review" />
+    </LinearLayout>
+</ScrollView>
